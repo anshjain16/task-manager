@@ -16,10 +16,11 @@ app.use('/api/v1/tasks', router);
 console.log('Task Manager App')
 app.get('*', notFound)
 
+const port = process.env.PORT || 3000
 connectDB(process.env.MONGO_URI)
 .then(function() {
-    app.listen(3000, function () {
-        console.log('Server is up and running on port 3000...');    
+    app.listen(port, function () {
+        console.log(`Server is up and running on port ${port}`);    
     })
 })
 .catch(function(err) {
